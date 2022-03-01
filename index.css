@@ -109,6 +109,12 @@ select {
     padding: 3rem;
 }
 
+.color-box {
+    background-color: var(--clr-box-clr, hsl( var(--clr-light) ));
+    padding: 3rem 1rem 1rem;
+    border: solid 1px hsl( var(--clr-white) );
+}
+
 /* Colors */
 
 .bg-dark { background-color: hsl( var(--clr-dark) ); }
