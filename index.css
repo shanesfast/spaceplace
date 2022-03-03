@@ -212,10 +212,30 @@ select {
 /* -------------------- */
 
 .large-button {
+    position: relative;
     display: grid;
     place-items: center;
+    z-index: 1;
     padding: 0 2em;
     aspect-ratio: 1;
     border-radius: 50%;
     text-decoration: none;
+}
+
+.large-button::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    background: hsl( var(--clr-white) / 0.15 );
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 500ms linear, transform 750ms ease-in-out;
+}
+
+.large-button:hover::after,
+.large-button:focus::after {
+    opacity: 1;
+    transform: scale(1.5);
 }
