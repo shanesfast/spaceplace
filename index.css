@@ -298,3 +298,22 @@ select {
 .dot-indicators > [aria-selected="true"] {
     background-color: hsl( var(--clr-white) / 1 );
 }
+
+.number-indicators > * {
+    height: 5rem;
+    cursor: pointer;
+    border: solid .1rem hsl( var(--clr-white) / .5 );
+    border-radius: 50%;
+    aspect-ratio: 1;
+    background-color: hsl( var(--clr-dark) / .25 );
+}
+
+.number-indicators > *:hover,
+.number-indicators > *:focus {
+    border: solid .1rem hsl( var(--clr-white) / 1 );
+}
+
+.number-indicators > [aria-selected="true"] {
+    color: hsl( var(--clr-dark) / 1 );
+    background-color: hsl( var(--clr-white) / 1 );
+}
