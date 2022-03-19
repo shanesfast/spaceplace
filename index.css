@@ -341,41 +341,6 @@ select {
     background-color: hsl( var(--clr-white) / 1 );
 }
 
-.mobile-menu {
-    z-index: 2;
-    height: 100vh;
-    padding-inline: 2rem;
-    background-color: hsl( var(--clr-white) / 0.6 );
-    backdrop-filter: blur(4px);
-    position: absolute;
-    right: 0;
-    display: grid;
-    width: 22rem;
-}
-
-.mobile-menu > *:first-child {
-    margin-top: 4rem;
-}
-
-.mobile-nav-toggle {
-    z-index: 3;
-    position: absolute;
-    right: 0;
-    height: 4rem;
-    width: 4rem;
-    color:hsl( var(--clr-white) );
-    background: none;
-    border: none;
-}
-
-.mobile-nav-toggle:before {
-    content: "x";
-}
-
-.mobile-nav-toggle:hover {
-    cursor: pointer;
-}
-
 .number-indicators > * {
     height: 5rem;
     cursor: pointer;
@@ -395,16 +360,37 @@ select {
     background-color: hsl( var(--clr-white) / 1 );
 }
 
-.primary-header {
-    position: relative;
-}
-
 .primary-navigation {
-    --gap: 8rem;
     --underline-gap: 2rem;
+    background: hsl( var(--clr-dark) / .95 );
+    /* backdrop-filter: blur(1.5rem); */
     list-style: none;
     padding: 0;
     margin: 0;
+}
+
+@supports (backdrop-filter: blur(1rem)) {
+    .primary-navigation {
+        background: hsl( var(--clr-white) / .05 );
+        backdrop-filter: blur(1.5rem);
+    }
+}
+
+@media (max-width: 35rem) {
+    .primary-navigation {
+        --underline-gap: .5rem;
+        position: fixed;
+        z-index: 1000;
+        inset: 0 0 0 30%;
+        list-style: none;
+        padding: min(20rem, 10vh) 2rem;
+        margin: 0;
+        flex-direction: column;
+    }
+
+    .primary-navigation.underline-indicators > .active {
+        border: 0;
+    }
 }
 
 .primary-navigation a {
