@@ -90,6 +90,8 @@ body {
     line-height: 1.5;
     min-height: 100vh;
     display: grid;
+    background-size: cover;
+    background-position: bottom center;
 }
 
 /* Make images easier to work with */
@@ -297,23 +299,6 @@ select {
     transform: scale(1.5);
 }
 
-.primary-navigation {
-    --gap: 8rem;
-    --underline-gap: 2rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.primary-navigation a {
-    text-decoration: none;
-}
-
-.primary-navigation a > span {
-    font-weight: 700;
-    margin-right: 0.5em;
-}
-
 .underline-indicators > * {
     cursor: pointer;
     padding: var(--underline-gap, 1rem) 0;
@@ -356,6 +341,41 @@ select {
     background-color: hsl( var(--clr-white) / 1 );
 }
 
+.mobile-menu {
+    z-index: 2;
+    height: 100vh;
+    padding-inline: 2rem;
+    background-color: hsl( var(--clr-white) / 0.6 );
+    backdrop-filter: blur(4px);
+    position: absolute;
+    right: 0;
+    display: grid;
+    width: 22rem;
+}
+
+.mobile-menu > *:first-child {
+    margin-top: 4rem;
+}
+
+.mobile-nav-toggle {
+    z-index: 3;
+    position: absolute;
+    right: 0;
+    height: 4rem;
+    width: 4rem;
+    color:hsl( var(--clr-white) );
+    background: none;
+    border: none;
+}
+
+.mobile-nav-toggle:before {
+    content: "x";
+}
+
+.mobile-nav-toggle:hover {
+    cursor: pointer;
+}
+
 .number-indicators > * {
     height: 5rem;
     cursor: pointer;
@@ -375,3 +395,49 @@ select {
     background-color: hsl( var(--clr-white) / 1 );
 }
 
+.primary-header {
+    position: relative;
+}
+
+.primary-navigation {
+    --gap: 8rem;
+    --underline-gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.primary-navigation a {
+    text-decoration: none;
+}
+
+.primary-navigation a > span {
+    font-weight: 700;
+    margin-right: 0.5em;
+}
+
+/* -------------------- */
+/* Page Specific        */
+/* -------------------- */
+
+/* Home */
+
+.home {
+    background-image: url(./assets/home/background-home-mobile.jpg);
+}
+
+@media (min-width: 30rem) {
+    body {
+        background-position: center center;
+    }
+
+    .home {
+        background-image: url(./assets/home/background-home-tablet.jpg);
+    }
+}
+
+@media (min-width: 45rem) {
+    .home {
+        background-image: url(/assets/home/background-home-desktop.jpg);
+    }
+}
