@@ -89,9 +89,10 @@ body {
     background-color: hsl( var(--clr-dark) );
     line-height: 1.5;
     min-height: 100vh;
+    
     display: grid;
-    background-size: cover;
-    background-position: bottom center;
+    grid-template-rows: min-content 1fr;
+    
     overflow-x: hidden;
 }
 
@@ -361,13 +362,34 @@ select {
     background-color: hsl( var(--clr-white) / 1 );
 }
 
+/* Primary Header */
+
+.logo {
+    margin: 1.5rem clamp(1.5rem, 5vw, 3.5rem);
+}
+
+.primary-header {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .primary-navigation {
+    --gap: min(3rem, 4vw);
     --underline-gap: 2rem;
-    background: hsl( var(--clr-dark) / .95 );
-    /* backdrop-filter: blur(1.5rem); */
+    background: hsl( var(--clr-white) / 0.05);
     list-style: none;
     padding: 0;
     margin: 0;
+}
+
+.primary-navigation a {
+    text-decoration: none;
+}
+
+.primary-navigation a > span {
+    font-weight: 700;
+    margin-right: 0.5em;
 }
 
 .mobile-nav-toggle {
@@ -413,6 +435,7 @@ select {
         z-index: 1000;
         inset: 0 0 0 30%;
         list-style: none;
+        background: hsl( var(--clr-dark) / 0.95);
         padding: min(20rem, 10vh) 2rem;
         margin: 0;
         flex-direction: column;
@@ -429,13 +452,14 @@ select {
     }
 }
 
-.primary-navigation a {
-    text-decoration: none;
-}
+@media (min-width: 35em) and (max-width: 45em) {
+    .primary-navigation {
+        padding-inline: 3rem;
+    }
 
-.primary-navigation a > span {
-    font-weight: 700;
-    margin-right: 0.5em;
+    .primary-navigation a > span {
+        display: none;
+    }
 }
 
 /* -------------------- */
@@ -445,6 +469,7 @@ select {
 /* Home */
 
 .home {
+    background-size: cover;
     background-image: url(./assets/home/background-home-mobile.jpg);
 }
 
