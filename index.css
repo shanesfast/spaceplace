@@ -366,6 +366,7 @@ select {
 
 .logo {
     margin: 1.5rem clamp(1.5rem, 5vw, 3.5rem);
+    flex: 1 1 0;
 }
 
 .primary-header {
@@ -452,13 +453,38 @@ select {
     }
 }
 
-@media (min-width: 35em) and (max-width: 45em) {
+@media (min-width: 35em) {
     .primary-navigation {
-        padding-inline: 3rem;
+        padding-inline: clamp(3rem, 4vw, 5rem);
     }
+}
 
+@media (min-width: 35em) and (max-width: 44.999em) {
     .primary-navigation a > span {
         display: none;
+    }
+}
+
+@media (min-width: 45em) {
+    .primary-header::before {
+        content: '';
+        display: block;
+        position: relative;
+        flex: 3 2 40%;
+        order: 1;
+        height: 1px;
+        width: 100%;
+        background: hsl( var(--clr-white) );
+        margin-right: -2rem;
+    }
+
+    .primary-header > nav {
+        order: 2;
+        flex: 4 1 40%;
+    }
+
+    .primary-navigation {
+        margin-block: 2rem;
     }
 }
 
