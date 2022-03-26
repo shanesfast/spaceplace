@@ -168,6 +168,12 @@ select {
     max-width: 50ch;
 }
 
+.divider {
+    width: 100%; 
+    border-bottom: hsl( var(--clr-white) / .25 ) solid 2px; 
+    margin: 2em auto 1em auto;
+}
+
 @media (min-width: 45em) {
     .grid-container {
         text-align: left;
@@ -331,6 +337,7 @@ select {
 }
 
 .underline-indicators > .active,
+.underline-indicators > .active > a,
 .underline-indicators > [aria-selected="true"] {
     color: hsl( var(--clr-white) / 1 );
     border-color: hsl( var(--clr-white) / 1);
@@ -527,4 +534,35 @@ select {
     .home {
         background-image: url(/assets/home/background-home-desktop.jpg);
     }
+}
+
+/* Destination */
+
+.grid-container--destination {
+    --gap: 2rem;
+}
+
+.destination-navigation {
+    --gap: min(3rem, 4vw);
+    --underline-gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.destination-navigation a {
+    text-decoration: none;
+}
+
+.destination-navigation a > span {
+    font-weight: 700;
+    margin-right: 0.5em;
+}
+
+.destination-info {
+    margin-bottom: 2rem;
+}
+
+.destination-meta {
+    flex-direction: column;
 }
