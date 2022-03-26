@@ -171,10 +171,10 @@ select {
 .divider {
     width: 100%; 
     border-bottom: hsl( var(--clr-white) / .25 ) solid 2px; 
-    margin: 2em auto 1em auto;
+    margin: var(--dvider-gap, 2em) auto;
 }
 
-@media (min-width: 45em) {
+@media (min-width: 60em) {
     .grid-container {
         text-align: left;
         column-gap: var(--container-gap, 2rem);
@@ -486,7 +486,7 @@ select {
     }
 }
 
-@media (min-width: 45em) {
+@media (min-width: 60em) {
     .primary-header::before {
         content: '';
         display: block;
@@ -501,7 +501,7 @@ select {
 
     .primary-header > nav {
         order: 2;
-        flex: 4 1 60%;
+        flex: 4 1 40%;
     }
 
     .primary-navigation {
@@ -539,7 +539,12 @@ select {
 /* Destination */
 
 .grid-container--destination {
-    --gap: 2rem;
+    row-gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.grid-container--destination > img {
+    max-width: 15rem;
 }
 
 .destination-navigation {
@@ -559,10 +564,70 @@ select {
     margin-right: 0.5em;
 }
 
-.destination-info {
-    margin-bottom: 2rem;
+.destination-navigation.underline-indicators {
+    --underline-gap: .5rem;
 }
 
 .destination-meta {
     flex-direction: column;
+}
+
+@media (min-width: 35em) {
+    .destination-info,
+    .destination-info * {
+        max-width: 60ch;
+    }
+
+    .destination-meta {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .grid-container--destination > h2 {
+        place-self: start;
+        margin-top: 2rem;
+    }
+
+    .grid-container--destination > img {
+        max-width: 18rem;
+    }
+}
+
+@media (min-width: 60em) {
+    .grid-container--destination {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 0;
+        column-gap: 2rem;
+        padding-inline: 10rem;
+    }
+
+    .grid-container--destination > *:first-child {
+        grid-column: 1;
+        place-self: center start;
+        margin: 0;
+    }
+
+    .grid-container--destination > img {
+        grid-column: 1;
+        max-width: 30rem;
+        min-width: 10rem;
+    }
+
+    .grid-container--destination nav {
+        grid-column: 2;
+        grid-row: 1;
+        place-self: end start;
+    }
+
+    .grid-container--destination > *:last-child {
+        grid-column: 2;
+        grid-row: 2;
+        place-self: center start;
+    }
+
+    .destination-meta {
+        --gap: 3rem;
+        flex-direction: row;
+        justify-content: left;
+    }
 }
