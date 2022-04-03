@@ -633,3 +633,24 @@ select {
         justify-content: left;
     }
 }
+
+/* Crew */
+
+.grid-container--crew {
+    row-gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.grid-container--crew .divider {
+    margin: 0;
+}
+
+.crew-img-container {
+    grid-row: 2;
+    width: 90%;
+}
+
+.crew-img-container > img {
+    margin: 0 auto;
+    max-width: 15rem;
+}
