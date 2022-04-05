@@ -637,12 +637,16 @@ select {
 /* Crew */
 
 .grid-container--crew {
-    row-gap: 2rem;
     margin-bottom: 4rem;
+}
+
+.grid-container--crew .numbered-title {
+    font-size: var(--fs-700);
 }
 
 .grid-container--crew .divider {
     margin: 0;
+    border: inset 1px hsl( var(--clr-white) / .25 );
 }
 
 .crew-img-container {
@@ -652,5 +656,19 @@ select {
 
 .crew-img-container > img {
     margin: 0 auto;
-    max-width: 15rem;
+    max-width: 12rem;
+}
+
+.crew-details {
+    padding-inline: 2.5rem;
+}
+
+.crew-details :first-child {
+    color: hsl( var(--clr-white) / .6 );
+    margin-bottom: .5rem;
+}
+
+.crew-details :last-child {
+    margin-top: 1rem;
+    line-height: 25px;
 }
