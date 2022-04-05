@@ -672,3 +672,26 @@ select {
     margin-top: 1rem;
     line-height: 25px;
 }
+
+@media (min-width: 35em) {
+    .grid-container--crew {
+        margin-bottom: 0;
+        place-items: end center;
+    }
+
+    .grid-container--crew .dot-indicators {
+        grid-row: 3;
+    }
+
+    .crew-img-container {
+        grid-row: 4;
+    }
+
+    .crew-img-container > img {
+        max-width: 18rem;
+    }
+
+    .grid-container--crew .divider {
+        display: none;
+    }
+}
