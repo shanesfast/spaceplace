@@ -705,10 +705,6 @@ select {
     .crew-details {
         padding-inline: 5.5rem;
     }
-
-    .crew-details :last-child {
-        font-size: var(--fs-400);
-    }
 }
 
 @media (min-width: 60rem) {
