@@ -13,10 +13,10 @@
     --fs-800: 3.5rem;
     --fs-700: 1.5rem;
     --fs-600: 1rem;
-    --fs-500: 1rem;
-    --fs-400: 0.9375rem;
-    --fs-300: 1rem;
-    --fs-200: 0.875rem;
+    --fs-500: .9375rem;
+    --fs-400: .75rem;
+    --fs-300: .6375rem;
+    --fs-200: 0.5rem;
     
     /* font-families */
     --ff-serif: "Bellefair", serif;
@@ -676,11 +676,23 @@ select {
 @media (min-width: 35em) {
     .grid-container--crew {
         margin-bottom: 0;
+        padding-top: 2rem;
         place-items: end center;
+        row-gap: 2rem;
+    }
+
+    .grid-container--crew .numbered-title {
+        font-size: var(--fs-500);
+        place-self: start;
+        margin-left: 1rem;
     }
 
     .grid-container--crew .dot-indicators {
         grid-row: 3;
+    }
+
+    .grid-container--crew .dot-indicators > * {
+        padding: .3rem;
     }
 
     .crew-img-container {
@@ -693,5 +705,13 @@ select {
 
     .grid-container--crew .divider {
         display: none;
+    }
+
+    .crew-details {
+        padding-inline: 5.5rem;
+    }
+
+    .crew-details :last-child {
+        font-size: var(--fs-400);
     }
 }
