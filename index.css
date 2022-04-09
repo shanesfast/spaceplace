@@ -375,7 +375,7 @@ select {
 /* Primary Header */
 
 .logo {
-    margin: 1.5rem clamp(1.5rem, 5vw, 3.5rem);
+    margin: 1.5rem clamp(1.5rem, 5vw, 3rem);
     flex: 1 1 0;
 }
 
