@@ -12,11 +12,11 @@
     --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
     --fs-800: 3.5rem;
     --fs-700: 1.5rem;
-    --fs-600: 1rem;
-    --fs-500: .9375rem;
-    --fs-400: .75rem;
-    --fs-300: .6375rem;
-    --fs-200: 0.5rem;
+    --fs-600: 1.25rem;
+    --fs-500: 1rem;
+    --fs-400: .9375rem;
+    --fs-300: .8375rem;
+    --fs-200: .7375rem;
     
     /* font-families */
     --ff-serif: "Bellefair", serif;
