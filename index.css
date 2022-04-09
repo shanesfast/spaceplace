@@ -638,6 +638,7 @@ select {
 
 .grid-container--crew {
     margin-bottom: 4rem;
+    row-gap: 2rem;
 }
 
 .grid-container--crew .numbered-title {
@@ -678,7 +679,6 @@ select {
         margin-bottom: 0;
         padding-top: 2rem;
         place-items: end center;
-        row-gap: 2rem;
     }
 
     .grid-container--crew .numbered-title {
