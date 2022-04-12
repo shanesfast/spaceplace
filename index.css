@@ -557,7 +557,7 @@ select {
     margin-bottom: 4rem;
 }
 
-.grid-container--destination > img {
+.grid-container--destination > picture {
     max-width: 15rem;
 }
 
