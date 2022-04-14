@@ -9,6 +9,11 @@ const fetchJson = async () => {
     }
  };
 
- const data = fetchJson();
+const data = fetchJson();
+const tabList = document.querySelector('[role="tablist"]');
+const tabs = document.querySelectorAll('[role="tab"]');
 
-console.log(data);
+tabList.addEventListener('keydown', (e) => {
+    console.log(tabList);
+    console.log(tabs);
+});
