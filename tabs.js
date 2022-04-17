@@ -28,29 +28,29 @@
 
 const tabList = document.querySelector('[role="tablist"]');
 const tabs = document.querySelectorAll('[role="tab"]');
+let tabFocus = 0;
 
 tabList.addEventListener('keydown', (e) => {
     const keyLeft = 37;
     const keyRight = 39;
-    const currentTab = tabList.getElementsByClassName("active")[0];
 
     if (e.keyCode === keyLeft || e.keyCode === keyRight) {
-        currentTab.classList.remove("active");
-        currentTab.setAttribute("tabindex", -1);
-        
+        tabs[tabFocus].classList.remove("active");
+        tabs[tabFocus].setAttribute("tabindex", -1);
+        tabs[tabFocus].setAttribute("aria-selected", false);
+
         if (e.keyCode === keyLeft) {
-            if (currentTab.previousElementSibling) {
-                currentTab.previousElementSibling.classList.add("active");
-            } else {
-                tabList.children[tabList.children.length - 1].classList.add("active");
-            }
+            --tabFocus;
+            if (tabFocus < 0) tabFocus = 3;
         } else if (e.keyCode === keyRight) {
-            if (currentTab.nextElementSibling) {
-                currentTab.nextElementSibling.classList.add("active");
-            } else {
-                tabList.children[0].classList.add("active");
-            }
+            ++tabFocus;
+            if (tabFocus > 3) tabFocus = 0;
         }
+
+        tabs[tabFocus].classList.add("active");
+        tabs[tabFocus].setAttribute("tabindex", 0);
+        tabs[tabFocus].setAttribute("aria-selected", true);
+        tabs[tabFocus].focus();
     }
 });
 
