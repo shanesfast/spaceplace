@@ -34,21 +34,22 @@ tabList.addEventListener('keydown', (e) => {
     const keyRight = 39;
     const currentTab = tabList.getElementsByClassName("active")[0];
 
-    if (e.keyCode === keyLeft) {
-        if (currentTab.previousElementSibling) {
-            currentTab.classList.remove("active");
-            currentTab.previousElementSibling.classList.add("active");
-        } else {
-            currentTab.classList.remove("active");
-            tabList.children[tabList.children.length - 1].classList.add("active");
-        }
-    } else if (e.keyCode === keyRight) {
-        if (currentTab.nextElementSibling) {
-            currentTab.classList.remove("active");
-            currentTab.nextElementSibling.classList.add("active");
-        } else {
-            currentTab.classList.remove("active");
-            tabList.children[0].classList.add("active");
+    if (e.keyCode === keyLeft || e.keyCode === keyRight) {
+        currentTab.classList.remove("active");
+        currentTab.setAttribute("tabindex", -1);
+        
+        if (e.keyCode === keyLeft) {
+            if (currentTab.previousElementSibling) {
+                currentTab.previousElementSibling.classList.add("active");
+            } else {
+                tabList.children[tabList.children.length - 1].classList.add("active");
+            }
+        } else if (e.keyCode === keyRight) {
+            if (currentTab.nextElementSibling) {
+                currentTab.nextElementSibling.classList.add("active");
+            } else {
+                tabList.children[0].classList.add("active");
+            }
         }
     }
 });
