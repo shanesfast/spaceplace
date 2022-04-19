@@ -41,10 +41,10 @@ tabList.addEventListener('keydown', (e) => {
 
         if (e.keyCode === keyLeft) {
             --tabFocus;
-            if (tabFocus < 0) tabFocus = 3;
+            if (tabFocus < 0) tabFocus = tabs.length - 1;
         } else if (e.keyCode === keyRight) {
             ++tabFocus;
-            if (tabFocus > 3) tabFocus = 0;
+            if (tabFocus > tabs.length - 1) tabFocus = 0;
         }
 
         tabs[tabFocus].classList.add("active");
