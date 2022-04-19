@@ -28,9 +28,9 @@
 
 const tabList = document.querySelector('[role="tablist"]');
 const tabs = document.querySelectorAll('[role="tab"]');
-let tabFocus = 0;
 
-tabList.addEventListener('keydown', (e) => {
+let tabFocus = 0;
+function changeTabFocus(e) {
     const keyLeft = 37;
     const keyRight = 39;
 
@@ -52,7 +52,9 @@ tabList.addEventListener('keydown', (e) => {
         tabs[tabFocus].setAttribute("aria-selected", true);
         tabs[tabFocus].focus();
     }
-});
+}
+
+tabList.addEventListener('keydown', changeTabFocus);
 
 tabs.forEach(tab => {
     switch (tab.innerText)
