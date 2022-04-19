@@ -1,4 +1,4 @@
- async function fetchJson() {
+ const fetchJson = async() => {
     try {
         const data = await fetch("./data.json");
         return await data.json();
@@ -7,7 +7,18 @@
     }
  };
 
- const fillPlanetData = async (planet) => {
+ const fillPlanetData = async(e) => {
+    const data = await fetchJson();
+    let planetIndex = 0;
+
+    for (let i=0; i<data.destinations.length; ++i) {
+        if (data.destinations[i].name.toUpperCase() === e.target.innerText.toUpperCase()) {
+            planetIndex = i;
+            i = data.destinations.length; // break the loop
+        }
+    }
+
+    const planet = data.destinations[planetIndex];
     const article = document.getElementsByClassName("destination-info")[0];
     const meta = document.getElementsByClassName("destination-meta")[0];
     const title = article.getElementsByTagName("h2")[0];
@@ -30,7 +41,7 @@ const tabList = document.querySelector('[role="tablist"]');
 const tabs = document.querySelectorAll('[role="tab"]');
 
 let tabFocus = 0;
-function changeTabFocus(e) {
+const changeTabFocus = (e) => {
     const keyLeft = 37;
     const keyRight = 39;
 
@@ -54,40 +65,19 @@ function changeTabFocus(e) {
     }
 }
 
+const changeActiveTab = (e) => {
+    tabs.forEach(tab => {
+        tab.classList.remove("active");
+        tab.setAttribute("aria-selected", false);
+    });
+    e.target.classList.add("active");
+    e.target.setAttribute("aria-selected", true);
+}
+
 tabList.addEventListener('keydown', changeTabFocus);
 
 tabs.forEach(tab => {
-    switch (tab.innerText)
-    {
-        case "MOON":
-            tab.addEventListener("focus", async () => {
-                const data = await fetchJson();
-                const moon = data.destinations[0];
-                fillPlanetData(moon);
-            });
-            break;
-        case "MARS":
-            tab.addEventListener("focus", async () => {
-                const data = await fetchJson();
-                const mars = data.destinations[1];
-                fillPlanetData(mars);
-            });
-            break;
-        case "EUROPA":
-            tab.addEventListener("focus", async () => {
-                const data = await fetchJson();
-                const europa = data.destinations[2];
-                fillPlanetData(europa);
-            });
-            break;
-        case "TITAN":
-            tab.addEventListener("focus", async () => {
-                const data = await fetchJson();
-                const titan = data.destinations[3];
-                fillPlanetData(titan);
-            });
-            break;
-        default:
-            console.log("No matches from switch statement....");
-    }
+    tab.addEventListener("click", changeActiveTab);
+    tab.addEventListener("click", fillPlanetData);
+    tab.addEventListener("focus", fillPlanetData);
 });
