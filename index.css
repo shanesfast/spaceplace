@@ -624,7 +624,7 @@ select {
     .grid-container--destination > picture {
         grid-column: 1;
         max-width: 30rem;
-        min-width: 10rem;
+        min-width: 22rem;
     }
 
     .grid-container--destination nav {

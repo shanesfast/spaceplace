@@ -1,4 +1,4 @@
- const fetchJson = async() => {
+ const getSpaceJson = async() => {
     try {
         const data = await fetch("./data.json");
         return await data.json();
@@ -8,17 +8,9 @@
  };
 
  const fillPlanetData = async(e) => {
-    const data = await fetchJson();
-    let planetIndex = 0;
+    let planetIndex = parseInt(e.target.getAttribute("data-index"));
 
-    for (let i=0; i<data.destinations.length; ++i) {
-        if (data.destinations[i].name.toUpperCase() === e.target.innerText.toUpperCase()) {
-            planetIndex = i;
-            i = data.destinations.length; // break the loop
-        }
-    }
-
-    const planet = data.destinations[planetIndex];
+    const planet = spaceTourismData.destinations[planetIndex];
     const article = document.getElementsByClassName("destination-info")[0];
     const meta = document.getElementsByClassName("destination-meta")[0];
     const title = article.getElementsByTagName("h2")[0];
@@ -37,10 +29,27 @@
     pictureImage.src = planet.images.png;
  }
 
-const tabList = document.querySelector('[role="tablist"]');
-const tabs = document.querySelectorAll('[role="tab"]');
+ const fillCrewData = async(e) => {
+    let crewIndex = parseInt(e.target.getAttribute("data-index"));
 
-let tabFocus = 0;
+    const member = spaceTourismData.crew[crewIndex];
+    console.log(member);
+    const article = document.getElementsByClassName("crew-details")[0];
+    const title = article.getElementsByTagName("h2")[0];
+    const name = article.getElementsByTagName("p")[0];
+    const description = article.getElementsByTagName("p")[1];
+
+    const imageContainer = document.getElementsByClassName("crew-img-container")[0];
+    const pictureSource = imageContainer.getElementsByTagName("picture")[0].getElementsByTagName("source")[0];
+    const image = imageContainer.getElementsByTagName("picture")[0].getElementsByTagName("img")[0];
+
+    title.innerText = member.role;
+    name.innerText = member.name;
+    description.innerText = member.bio;
+    pictureSource.srcset = member.images.webp;
+    image.src = member.images.png;
+ }
+
 const changeTabFocus = (e) => {
     const keyLeft = 37;
     const keyRight = 39;
@@ -74,10 +83,28 @@ const changeActiveTab = (e) => {
     e.target.setAttribute("aria-selected", true);
 }
 
-tabList.addEventListener('keydown', changeTabFocus);
+const initializeTabs = async () => {
+    spaceTourismData = await getSpaceJson();
 
-tabs.forEach(tab => {
-    tab.addEventListener("click", changeActiveTab);
-    tab.addEventListener("click", fillPlanetData);
-    tab.addEventListener("focus", fillPlanetData);
-});
+    tabList.addEventListener('keydown', changeTabFocus);
+
+    tabs.forEach(tab => {
+        let fillFunction;
+
+        console.log(spaceTourismData);
+
+        if (window.location.pathname.includes('crew')) fillFunction = fillCrewData;
+        else if (window.location.pathname.includes('destination')) fillFunction = fillPlanetData;
+
+        tab.addEventListener("click", changeActiveTab);
+        tab.addEventListener("click", fillFunction);
+        tab.addEventListener("focus", fillFunction);
+    });
+}
+
+let spaceTourismData;
+const tabList = document.querySelector('[role="tablist"]');
+const tabs = document.querySelectorAll('[role="tab"]');
+let tabFocus = 0;
+
+initializeTabs();   
