@@ -33,7 +33,6 @@
     let crewIndex = parseInt(e.target.getAttribute("data-index"));
 
     const member = spaceTourismData.crew[crewIndex];
-    console.log(member);
     const article = document.getElementsByClassName("crew-details")[0];
     const title = article.getElementsByTagName("h2")[0];
     const name = article.getElementsByTagName("p")[0];
@@ -91,13 +90,10 @@ const initializeTabs = async () => {
     tabs.forEach(tab => {
         let fillFunction;
 
-        console.log(spaceTourismData);
-
         if (window.location.pathname.includes('crew')) fillFunction = fillCrewData;
         else if (window.location.pathname.includes('destination')) fillFunction = fillPlanetData;
 
         tab.addEventListener("click", changeActiveTab);
-        tab.addEventListener("click", fillFunction);
         tab.addEventListener("focus", fillFunction);
     });
 }
