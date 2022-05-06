@@ -77,6 +77,7 @@ const changeActiveTab = (e) => {
     tabs.forEach(tab => {
         tab.classList.remove("active");
         tab.setAttribute("aria-selected", false);
+        console.log(tab);
     });
     e.target.classList.add("active");
     e.target.setAttribute("aria-selected", true);
@@ -93,7 +94,7 @@ const initializeTabs = async () => {
         if (window.location.pathname.includes('crew')) fillFunction = fillCrewData;
         else if (window.location.pathname.includes('destination')) fillFunction = fillPlanetData;
 
-        tab.addEventListener("click", changeActiveTab);
+        tab.addEventListener("mousedown", changeActiveTab);
         tab.addEventListener("focus", fillFunction);
     });
 }
