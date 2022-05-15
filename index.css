@@ -364,6 +364,7 @@ select {
     border-radius: 50%;
     aspect-ratio: 1;
     background-color: hsl( var(--clr-dark) / .25 );
+    color: hsl( var(--clr-white) / 1 );
 }
 
 .number-indicators > *:hover,
