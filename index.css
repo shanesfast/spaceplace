@@ -353,8 +353,12 @@ select {
     background-color: hsl( var(--clr-white) / 1 );
 }
 
+.number-indicators {
+    --gap: 1.5rem;
+}
+
 .number-indicators > * {
-    height: 5rem;
+    height: 3rem;
     cursor: pointer;
     border: solid .1rem hsl( var(--clr-white) / .5 );
     border-radius: 50%;
