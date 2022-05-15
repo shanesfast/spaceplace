@@ -810,3 +810,17 @@ select {
     object-fit: cover;
     object-position: bottom;
 }
+
+.tech-details {
+    padding-inline: 2.5rem;
+}
+
+.tech-details :first-child {
+    color: hsl( var(--clr-white) / .8 );
+    margin-bottom: .5rem;
+}
+
+.tech-details :last-child {
+    margin-top: 1rem;
+    line-height: 25px;
+}
