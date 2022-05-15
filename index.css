@@ -776,6 +776,11 @@ select {
 
 /* Technology */
 
+.tech {
+    background-size: cover;
+    background-image: url(./assets/technology/background-technology-mobile.jpg);
+}
+
 .grid-container--tech {
     margin-bottom: 4rem;
     padding-inline: 0;
