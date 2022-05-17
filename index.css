@@ -468,13 +468,13 @@ select {
     }
 }
 
-@media (min-width: 35em) {
+@media (min-width: 34.8999em) {
     .primary-navigation {
         padding-inline: clamp(3rem, 4vw, 5rem);
     }
 }
 
-@media (min-width: 35em) and (max-width: 55em) {
+@media (min-width: 34.8999em) and (max-width: 55em) {
     .primary-navigation a > span {
         display: none;
     }
