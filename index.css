@@ -847,3 +847,27 @@ select {
         height: 18rem;
     }
 }
+
+@media (min-width: 45em) {
+    .grid-container--tech {
+        padding-left: 3rem;
+        grid-template-rows: 1fr 7fr;
+        grid-template-columns: 2fr 2fr 3fr;
+    }
+
+    .numbered-title {
+        grid-column: 1 / -1;
+    }
+
+    .number-indicators {
+        grid-row: 2;
+        place-self: center end;
+        flex-direction: column;
+    }
+
+    .tech-details {
+        grid-row: 2;
+    }
+
+
+}
