@@ -840,7 +840,7 @@ select {
     }
 
     .tech-img-container picture img {
-        content: url("/assets/technology/image-launch-vehicle-landscape.jpg");
+        /* content: url("/assets/technology/image-launch-vehicle-landscape.jpg"); */
     }
 
     .tech-img-container {
@@ -885,7 +885,7 @@ select {
     }
 
     .tech-img-container picture img {
-        content: url("/assets/technology/image-launch-vehicle-portrait.jpg");
+        /* content: url("/assets/technology/image-launch-vehicle-portrait.jpg"); */
         object-fit: contain;
     }
 }

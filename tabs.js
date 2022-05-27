@@ -49,6 +49,23 @@
     image.src = member.images.png;
  }
 
+ const fillTechData = async(e) => {
+    let techIndex = parseInt(e.target.getAttribute("data-index"));
+
+    const tech = spaceTourismData.technology[techIndex];
+    const article = document.getElementsByClassName("tech-details")[0];
+    const title = article.getElementsByTagName("p")[0];
+    const description = article.getElementsByTagName("p")[1];
+
+    const imageContainer = document.getElementsByClassName("tech-img-container")[0];
+    const image = imageContainer.getElementsByTagName("picture")[0].getElementsByTagName("img")[0];
+
+    title.innerText = tech.name;
+    description.innerText = tech.description;
+    image.src = tech.images.portrait;
+    console.log(image);
+ }
+
 const changeTabFocus = (e) => {
     const keyLeft = 37;
     const keyRight = 39;
@@ -77,8 +94,8 @@ const changeActiveTab = (e) => {
     tabs.forEach(tab => {
         tab.classList.remove("active");
         tab.setAttribute("aria-selected", false);
-        console.log(tab);
     });
+
     e.target.classList.add("active");
     e.target.setAttribute("aria-selected", true);
 }
@@ -93,9 +110,10 @@ const initializeTabs = async () => {
 
         if (window.location.pathname.includes('crew')) fillFunction = fillCrewData;
         else if (window.location.pathname.includes('destination')) fillFunction = fillPlanetData;
+        else fillFunction = fillTechData;
 
-        tab.addEventListener("mousedown", changeActiveTab);
-        tab.addEventListener("focus", fillFunction);
+        tab.addEventListener("focusin", changeActiveTab);
+        tab.addEventListener("focusin", fillFunction);
     });
 }
 
