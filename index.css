@@ -811,6 +811,10 @@ select {
     object-position: bottom;
 }
 
+.tech-img-container picture img[data-type="Space capsule"] {
+    content: url("/assets/technology/image-space-capsule-landscape.jpg");
+}
+
 .tech-details {
     padding-inline: 2.5rem;
 }
@@ -839,8 +843,12 @@ select {
         margin-top: 2rem;
     }
 
-    .tech-img-container picture img {
-        /* content: url("/assets/technology/image-launch-vehicle-landscape.jpg"); */
+    .tech-img-container picture img[data-type="Launch vehicle"] {
+        content: url("/assets/technology/image-launch-vehicle-landscape.jpg");
+    }
+
+    .tech-img-container picture img[data-type="Spaceport"] {
+        content: url("/assets/technology/image-spaceport-landscape.jpg");
     }
 
     .tech-img-container {
@@ -884,8 +892,18 @@ select {
         height: 33rem;
     }
 
-    .tech-img-container picture img {
-        /* content: url("/assets/technology/image-launch-vehicle-portrait.jpg"); */
+    .tech-img-container picture img[data-type="Launch vehicle"] {
+        content: url("/assets/technology/image-launch-vehicle-portrait.jpg");
+        object-fit: contain;
+    }
+
+    .tech-img-container picture img[data-type="Spaceport"] {
+        content: url("/assets/technology/image-spaceport-portrait.jpg");
+        object-fit: contain;
+    }
+
+    .tech-img-container picture img[data-type="Space capsule"] {
+        content: url("/assets/technology/image-space-capsule-portrait.jpg");
         object-fit: contain;
     }
 }

@@ -63,7 +63,7 @@
     title.innerText = tech.name;
     description.innerText = tech.description;
     image.src = tech.images.portrait;
-    console.log(image);
+    image.dataset.type = tech.name;
  }
 
 const changeTabFocus = (e) => {
