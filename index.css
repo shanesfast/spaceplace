@@ -615,9 +615,10 @@ select {
 @media (min-width: 60em) {
     .grid-container--destination {
         grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 4fr;
         row-gap: 0;
         column-gap: 2rem;
-        padding-inline: 10rem;
+        padding-inline: 8rem;
     }
 
     .grid-container--destination > *:first-child {
